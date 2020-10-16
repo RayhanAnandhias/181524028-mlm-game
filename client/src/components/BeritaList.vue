@@ -15,20 +15,22 @@
           <table class="table table-striped tabel">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Judul</th>
-                <th scope="col">Konten</th>
-                <th scope="col">Kategori</th>
-                <th scope="col">Ubah</th>
+                <th class="text-center" scope="col">#</th>
+                <th class="text-center" scope="col">Judul</th>
+                <th class="text-center" scope="col" style="width: 50%">
+                  Konten
+                </th>
+                <th class="text-center" scope="col">Kategori</th>
+                <th class="text-center" scope="col">Ubah</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="(berita, index) in listBerita" :key="index">
-                <th scope="row">{{ index + 1 }}</th>
-                <td>{{ berita.judul_berita }}</td>
-                <td>{{ berita.konten }}</td>
-                <td>{{ berita.kategori }}</td>
-                <td>
+                <th class="text-center" scope="row">{{ index + 1 }}</th>
+                <td class="text-center">{{ berita.judul_berita }}</td>
+                <td class="text-center">{{ berita.konten }}</td>
+                <td class="text-center">{{ berita.kategori }}</td>
+                <td class="text-center">
                   <router-link
                     :to="'/berita/' + berita.id"
                     class="btn btn-warning"

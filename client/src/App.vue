@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <nav class="navbar fixed-top navbar-expand navbar-dark bg-dark">
       <router-link to="/" class="navbar-brand">CRUD-APP</router-link>
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
@@ -9,7 +9,7 @@
       </div>
     </nav>
 
-    <div class="container mt-4">
+    <div class="container mt-4 prim">
       <router-view />
     </div>
   </div>
@@ -22,8 +22,9 @@ export default {
 </script>
 
 <style>
-.container {
+.prim {
   margin-left: 30px;
   margin-right: auto;
+  padding-top: 50px;
 }
 </style>
