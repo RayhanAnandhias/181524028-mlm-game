@@ -96,7 +96,7 @@ export default {
       BeritaDataService.getAll()
         .then((response) => {
           this.listBerita = response.data;
-          console.log(response.data);
+          // console.log(response.data);
         })
         .catch((e) => {
           console.log(e);
@@ -104,8 +104,8 @@ export default {
     },
     deleteBerita(idBerita) {
       BeritaDataService.delete(idBerita)
-        .then((response) => {
-          console.log(response.data);
+        .then(() => {
+          // console.log(response.data);
           this.retrieveBerita();
           //   this.$router.push({ name: "berita" });
         })

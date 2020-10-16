@@ -65,7 +65,7 @@ export default {
       BeritaDataService.create(data)
         .then((response) => {
           this.berita.id = response.data.id;
-          console.log(response.data);
+          // console.log(response.data);
           this.$router.push({ name: "berita" });
         })
         .catch((e) => {
