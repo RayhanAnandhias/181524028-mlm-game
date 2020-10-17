@@ -4,6 +4,27 @@
     <router-link to="/add" class="btn btn-primary mt-4 mb-4"
       >Tambah Berita</router-link
     >
+    <div class="input-group mb-3 carian">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Cari berdasarkan judul"
+        name="judul"
+        id="judul"
+        v-model="judul"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-success"
+          type="button"
+          id="buttonCari"
+          name="buttonCari"
+          @click="searchJudul"
+        >
+          Cari
+        </button>
+      </div>
+    </div>
     <div v-if="alert.type.length != 0">
       <div :class="'alert alert-' + alert.type" role="alert">
         {{ alert.message }}
@@ -91,6 +112,7 @@ export default {
         type: "",
         message: "",
       },
+      judul: "",
     };
   },
   methods: {
@@ -115,6 +137,16 @@ export default {
           console.log(e);
         });
     },
+    searchJudul() {
+      BeritaDataService.findByTitle(this.judul)
+        .then((response) => {
+          this.listBerita = response.data;
+          // console.log(response.data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
   },
   mounted() {
     this.retrieveBerita();
@@ -128,5 +160,8 @@ export default {
 }
 .tabel {
   margin-left: -13px;
+}
+.carian {
+  max-width: 500px;
 }
 </style>

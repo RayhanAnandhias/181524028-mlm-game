@@ -37,7 +37,7 @@ exports.findAll = (req, res) => {
     ? { judul_berita: { [Op.iLike]: `%${judul_berita}%` } }
     : null;
 
-  Berita.findAll({ where: condition })
+  Berita.findAll({ where: condition, order: [["id", "ASC"]] })
     .then((data) => {
       res.send(data);
     })
@@ -126,12 +126,12 @@ exports.deleteAll = (req, res) => {
     });
 };
 
-exports.findAllByCategory = (req, res) => {
-  const kategori = req.query.kategori;
-  var condition = kategori
-    ? { kategori: { [Op.iLike]: `%${kategori}%` } }
+exports.findAllByTitle = (req, res) => {
+  const judul_berita = req.query.judul_berita;
+  var condition = judul_berita
+    ? { judul_berita: { [Op.iLike]: `%${judul_berita}%` } }
     : null;
-  Berita.findAll({ where: condition })
+  Berita.findAll({ where: condition, order: [["id", "ASC"]] })
     .then((data) => {
       res.send(data);
     })

@@ -25,8 +25,8 @@ class BeritaDataService {
     return http.delete("/berita");
   }
 
-  findByCategory(kategori) {
-    return http.get(`/berita?kategori=${kategori}`);
+  findByTitle(judul_berita) {
+    return http.get(`/berita?judul_berita=${judul_berita}`);
   }
 }
 
